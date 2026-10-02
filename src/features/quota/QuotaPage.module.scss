@@ -218,3 +218,60 @@
     gap: 16px;
   }
 }
+
+.layout {
+  flex: 0 0 146px;
+}
+.emailToggle {
+  padding: 10px 17px;
+  border: 1px solid var(--border-color);
+  border-radius: 99px;
+  background: transparent;
+  color: var(--text-secondary);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  &:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+  }
+  &:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+  }
+}
+.ledgerGroup {
+  min-width: 0;
+  h2 {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    margin: 16px 0 0;
+    font-size: 14px;
+  }
+  h2 span {
+    color: var(--text-tertiary);
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
+.timelineDisclosure {
+  margin-top: 20px;
+  > summary {
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 13px;
+    padding: 12px 0;
+  }
+}
+@media (max-width: 600px) {
+  .tabsRow {
+    flex-wrap: wrap;
+  }
+  .tabsRow > :first-child {
+    flex-basis: 100%;
+  }
+  .layout {
+    margin-left: auto;
+  }
+}

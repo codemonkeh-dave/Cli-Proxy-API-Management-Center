@@ -46,6 +46,14 @@ afterAll(() => {
 });
 
 describe('quota ui state', () => {
+  test('retains the chosen layout when changing other preferences', () => {
+    writeQuotaUiState({ layout: 'cards' });
+    writeQuotaUiState({ tab: 'claude' });
+    expect(readQuotaUiState()?.layout).toBe('cards');
+    storage.setItem(KEY, JSON.stringify({ layout: 'invalid' }));
+    expect(readQuotaUiState()?.layout).toBeUndefined();
+  });
+
   test('round-trips both preferences', () => {
     writeQuotaUiState({ tab: 'codex', sortMode: 'soonest' });
     expect(readQuotaUiState()).toEqual({ tab: 'codex', sortMode: 'soonest' });
